@@ -1,0 +1,19 @@
+/* home-page.component.css */
+
+/* Adjust the spacing of the main header body */
+header {
+    background: #f8f9fa; /* Light gray */
+    padding: 3rem 0;
+  }
+  
+  /* Style for the brand name */
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  /* Add some spacing to header buttons */
+  .btn {
+    font-size: 1.1rem;
+  }
+  
