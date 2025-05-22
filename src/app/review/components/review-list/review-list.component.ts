@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Review } from '../../models/review.model';
-import { ReviewService } from '../../services/review.service';
+import { Review } from '../../../models/review.model';
+import { ReviewService } from '../../../services/review.service';
 
 @Component({
   selector: 'app-review-list',

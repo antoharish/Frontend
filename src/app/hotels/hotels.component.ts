@@ -1,64 +1,106 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { Component, OnInit } from '@angular/core';
+// import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+// import { HotelService } from '../services/hotel.service';
+// import { Hotel } from '../models/hotel.model';
+// import { CommonModule } from '@angular/common';
 
+// @Component({
+//   selector: 'app-hotels',
+//   templateUrl: './hotels.component.html',
+//   styleUrls: ['./hotels.component.css'],
+//   standalone: true,
+//   imports: [CommonModule, ReactiveFormsModule]
+// })
+// export class HotelsComponent implements OnInit {
+//   searchForm: FormGroup;
+//   allHotels: Hotel[] = [];
+//   filteredHotels: Hotel[] | null = null; // null means no search yet
+
+//   constructor(private fb: FormBuilder, private hotelService: HotelService) {
+//     this.searchForm = this.fb.group({
+//       location: [''],
+//       checkIn: [''],
+//       checkOut: [''],      
+//       guestsRooms: ['']    // <-- Add this if you use guestsRooms in the form
+//     });
+//   }
+
+//   ngOnInit(): void {
+//     this.hotelService.getAllHotels().subscribe({
+//       next: (hotels) => this.allHotels = hotels,
+//       error: err => {
+//         this.allHotels = [];
+//         console.error(err);
+//       }
+//     });
+//   }
+
+//   onSearch(): void {
+//     const location = this.searchForm.value.location;
+//     const checkIn = this.searchForm.value.checkIn;
+//     this.hotelService.getAvailableHotels(location, checkIn).subscribe({
+//       next: (hotels) => this.filteredHotels = hotels,
+//       error: err => {
+//         this.filteredHotels = [];
+//         console.error(err);
+//       }
+//     });
+//   }
+// }
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Hotel } from '../review/models/hotel.model';
-import { HotelService } from '../review/services/hotel.service';
+import { HotelService } from '../services/hotel.service';
+import { Hotel } from '../models/hotel.model';
+
+import { CommonModule } from '@angular/common';
+import { HotelAvailability } from '../models/hotelAvailability.model';
 
 @Component({
-  selector: 'app-hotels',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './hotels.component.html',
-  styleUrls: ['./hotels.component.css']
+    selector: 'app-hotels',
+    templateUrl: './hotels.component.html',
+    styleUrls: ['./hotels.component.css'],
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule]
 })
 export class HotelsComponent implements OnInit {
-  
-  // Array to store all hotels fetched from the backend.
-  hotels: Hotel[] = [];
-  // Array to store filtered hotels according to search criteria.
-  filteredHotels: Hotel[] = [];
+    searchForm: FormGroup;
+    allHotels: Hotel[] = [];
+    filteredHotels: HotelAvailability[] | null = null;
 
-  // The reactive search form.
-  searchForm: FormGroup;
-
-  constructor(
-    private hotelService: HotelService,
-    private fb: FormBuilder
-  ) {
-    // Initialize the form with an empty location.
-    this.searchForm = this.fb.group({
-      location: ['']
-    });
-  }
-  
-  ngOnInit(): void {
-    this.loadHotels();
-  }
-  
-  // Load all hotels from the backend.
-  loadHotels(): void {
-    this.hotelService.getAllHotels().subscribe({
-      next: (data: Hotel[]) => {
-        this.hotels = data;
-        // Initially, show all hotels.
-        this.filteredHotels = data;
-      },
-      error: (err) => console.error(err)
-    });
-  }
-  
-  // Called when the search form is submitted.
-  onSearch(): void {
-    const location = this.searchForm.get('location')?.value?.toLowerCase();
-    if (location) {
-      // Filter hotels based on location (case insensitive).
-      this.filteredHotels = this.hotels.filter(
-        hotel => hotel.location && hotel.location.toLowerCase().includes(location)
-      );
-    } else {
-      // If no location is entered, reset the list to show all hotels.
-      this.filteredHotels = this.hotels;
+    constructor(private fb: FormBuilder, private hotelService: HotelService) {
+        this.searchForm = this.fb.group({
+            location: [''],
+            checkIn: [''],
+            checkOut: [''],
+            guestsRooms: ['']
+        });
     }
-  }
+
+    ngOnInit(): void {
+        this.hotelService.getAllHotels().subscribe({
+            next: (hotels) => this.allHotels = hotels,
+            error: err => {
+                this.allHotels = [];
+                console.error(err);
+            }
+        });
+    }
+
+    onSearch(): void {
+        const location = this.searchForm.value.location;
+        const checkIn = this.searchForm.value.checkIn;
+        
+        if (!location || !checkIn) {
+            this.filteredHotels = null;
+            return;
+        }
+
+        this.hotelService.getAvailableHotels(location, checkIn).subscribe({
+            next: (availabilities) => this.filteredHotels = availabilities,
+            error: err => {
+                this.filteredHotels = [];
+                console.error(err);
+            }
+        });
+    }
 }

@@ -1,9 +1,37 @@
 /* Optional styling for the hotels page */
 .card {
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-  
-  .card-title {
-    font-weight: bold;
-  }
-  
+  transition: transform 0.2s ease-in-out;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #ff5722;
+  border-color: #ff5722;
+}
+
+.btn-warning:hover {
+  background-color: #f4511e;
+  border-color: #f4511e;
+  color: #fff;
+}
+
+.badge {
+  font-size: 0.9rem;
+  padding: 0.5em 0.7em;
+}
+
+.text-primary {
+  color: #2196F3 !important;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #ff5722;
+  box-shadow: 0 0 0 0.2rem rgba(255,87,34,0.25);
+}

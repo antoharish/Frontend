@@ -22,14 +22,16 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HotelsComponent } from '../hotels/hotels.component';
+import { FlightsComponent } from '../flights/flights.component';
+import { LoginComponent } from '../auth/auth/login/login.component';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterModule,CommonModule,HotelsComponent],
+  imports: [RouterModule,CommonModule,HotelsComponent,FlightsComponent],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  // imports: [HotelsComponent, FlightsComponent, PackagesComponent] // Add your components here if standalone
+// Add your components here if standalone
 })
 export class HomePageComponent {
   selectedSection: 'flights' | 'hotels' | 'packages' | null = null;
