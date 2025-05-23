@@ -16,16 +16,10 @@
               <i class="fas fa-plus-circle me-2"></i>Add Hotel
             </button>
             <button class="btn btn-lg px-4"
-                    [class.btn-primary]="selectedSection !== 'viewHotels'"
-                    [class.btn-success]="selectedSection === 'viewHotels'"
-                    (click)="showSection('viewHotels')">
-              <i class="fas fa-list me-2"></i>View Hotels
-            </button>
-            <button class="btn btn-lg px-4"
-                    [class.btn-primary]="selectedSection !== 'manageBookings'"
-                    [class.btn-success]="selectedSection === 'manageBookings'"
-                    (click)="showSection('manageBookings')">
-              <i class="fas fa-calendar-check me-2"></i>Manage Bookings
+                    [class.btn-primary]="selectedSection !== 'manageHotels'"
+                    [class.btn-success]="selectedSection === 'manageHotels'"
+                    (click)="showSection('manageHotels')">
+              <i class="fas fa-list me-2"></i>Manage Hotels
             </button>
           </div>
         </div>
@@ -35,8 +29,7 @@
         <div class="col-12">
           <div [ngSwitch]="selectedSection">
             <app-add-hotel *ngSwitchCase="'addHotel'"></app-add-hotel>
-            <!-- <app-view-hotels *ngSwitchCase="'viewHotels'"></app-view-hotels>
-            <app-manage-bookings *ngSwitchCase="'manageHotels'"></app-manage-bookings> -->
+            <app-manage-hotels *ngSwitchCase="'manageHotels'"></app-manage-hotels>
             <div *ngSwitchDefault class="text-center py-5">
               <h3 class="text-muted">Select an option above to get started</h3>
             </div>
