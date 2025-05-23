@@ -29,11 +29,9 @@ import { Observable } from 'rxjs';
 import { Hotel } from '../models/hotel.model';
 import { HotelAvailability } from '../models/hotelAvailability.model';
 
-
 @Injectable({
     providedIn: 'root'
 })
-
 export class HotelService {
     private baseUrl = 'http://localhost:8081';
 
@@ -46,5 +44,18 @@ export class HotelService {
     getAvailableHotels(location: string, date: string): Observable<HotelAvailability[]> {
         return this.http.get<HotelAvailability[]>
         (`${this.baseUrl}/hotel-availability?location=${location}&date=${date}`);
+    }
+
+    createHotel(hotel: Hotel): Observable<Hotel> {
+        // Fixed the URL to match your backend endpoint
+        return this.http.post<Hotel>(`${this.baseUrl}/hotels/create`, hotel);
+    }
+
+    updateHotel(id: number, hotel: Hotel): Observable<Hotel> {
+        return this.http.put<Hotel>(`${this.baseUrl}/hotels/${id}`, hotel);
+    }
+
+    deleteHotel(id: number): Observable<void> {
+        return this.http.delete<void>(`${this.baseUrl}/hotels/${id}`);
     }
 }

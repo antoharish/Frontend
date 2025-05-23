@@ -32,8 +32,8 @@ import { HotelsComponent } from './hotels/hotels.component';
 import { LoginComponent } from './auth/auth/login/login.component';
 import { SignupComponent } from './auth/auth/signup/signup.component';
 import { AdminDashboardComponent } from './dashboards/admin-dashboard/admin-dashboard.component';
-import { ManagerDashboardComponent } from './dashboards/manager-dashboard/manager-dashboard.component';
 import { AgentDashboardComponent } from './dashboards/agent-dashboard/agent-dashboard.component';
+import { ManagerDashboardComponent } from './dashboards/manager-dashboard/dashboard/manager-dashboard.component';
 
 export const routes: Routes = [
   // When the URL is empty, redirect to Home
