@@ -39,11 +39,11 @@
       </app-edit-hotel>
     }
 
-    @if (showDeleteModal) {
-        <app-delete-hotel 
-          [hotel]="selectedHotel!"
-          (hotelDeleted)="onHotelDeleted()"
-          (modalClosed)="showDeleteModal = false">
-        </app-delete-hotel>
-      }
+@if (showDeleteModal) {
+  <app-delete-hotel 
+    [hotel]="selectedHotel!"
+    (hotelDeleted)="onHotelDeleted()"
+    (modalClosed)="showDeleteModal = false">
+  </app-delete-hotel>
+}
   </div>

@@ -1,4 +1,4 @@
-/* Optional styling for the hotels page */
+/* Optional styling for the hotels page
 .card {
   transition: transform 0.2s ease-in-out;
   border: none;
@@ -34,4 +34,52 @@
 .form-control:focus, .form-select:focus {
   border-color: #ff5722;
   box-shadow: 0 0 0 0.2rem rgba(255,87,34,0.25);
+} */
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.badge {
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.text-primary {
+  color: #0d6efd;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+      margin-bottom: 1rem;
+  }
 }

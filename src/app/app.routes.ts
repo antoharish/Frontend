@@ -1,28 +1,4 @@
-// src/app/app.routes.ts
-// import { Routes } from '@angular/router';
-// import { ReviewListComponent } from './review/components/review-list/review-list.component';
 
-// export const routes: Routes = [
-//   { path: '', redirectTo: 'reviews', pathMatch: 'full' },   
-// //   { path: '', component: ReviewListComponent },
-//   { path: '**', redirectTo: 'reviews' }
-// ];
-// import { Routes } from '@angular/router';
-// import { reviewRoutes } from './review/review-routing.module';
-// import { homeroutes } from './home-page/home-routing-model';
-// import { HotelsComponent } from './hotels/hotels.component';
-// import { hotelroutes } from './hotels/hotel-routing.model';
-
-// export const routes: Routes = [
-//   { path: 'reviews', redirectTo: 'reviews', pathMatch: 'full' },
-//   ...reviewRoutes, // Spread the review routes here
-//   { path: '**', redirectTo: 'Home' },
-//   { path: 'Home', redirectTo: 'Home',pathMatch: 'full' },
-//   ...homeroutes,
-//   { path: 'hotels', component: HotelsComponent },
-//   { path: 'hotels', redirectTo: 'hotels', pathMatch: 'full' },
-//   ...hotelroutes
-// ]; 
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ReviewListComponent } from './review/components/review-list/review-list.component';
@@ -34,6 +10,8 @@ import { SignupComponent } from './auth/auth/signup/signup.component';
 import { AdminDashboardComponent } from './dashboards/admin-dashboard/admin-dashboard.component';
 import { AgentDashboardComponent } from './dashboards/agent-dashboard/agent-dashboard.component';
 import { ManagerDashboardComponent } from './dashboards/manager-dashboard/dashboard/manager-dashboard.component';
+import { ReviewByHotelComponent } from './review/components/review-by-hotel/review-by-hotel.component';
+import { HotelBookingComponent } from './hotels/hotel-booking/hotel-booking.component';
 
 export const routes: Routes = [
   // When the URL is empty, redirect to Home
@@ -60,7 +38,11 @@ export const routes: Routes = [
     { path: 'manager-dashboard', component: ManagerDashboardComponent },
     { path: 'agent-dashboard', component: AgentDashboardComponent },
    
-   
+    {
+      path: 'hotels/:id/reviews',
+      component: ReviewByHotelComponent
+    },
+    { path: 'hotel-booking/:id', component: HotelBookingComponent },
 
   // Wildcard: any unknown URL redirects to Home
   { path: '**', redirectTo: 'Home' }
