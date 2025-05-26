@@ -1,0 +1,19 @@
+<div class="auth-container">
+  <div class="auth-form">
+    <h2>Sign in to TravelSite</h2>
+    <form (ngSubmit)="onLogin()">
+      <div class="input-group">
+        <input type="text" [(ngModel)]="username" name="username" class="form-control" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password" required>
+      </div>
+      <button class="btn btn-auth" type="submit">Sign In</button>
+    </form>
+  </div>
+  <div class="auth-side">
+    <h2>Hello, Friend!</h2>
+    <p>Enter your personal details and start journey with us</p>
+    <a routerLink="/signup" class="btn btn-outline-auth">Sign Up</a>
+  </div>
+</div>

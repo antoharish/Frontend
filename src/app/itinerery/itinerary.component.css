@@ -1,0 +1,133 @@
+/* General Styling */
+.container {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.card {
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+button {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Payment Card Styling */
+.payment-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: none;
+}
+
+.payment-card .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.payment-card .customization-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.payment-card .customization-list li {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.payment-card .proceed-btn {
+  background-color: #007bff;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.payment-card .proceed-btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Itinerary Section Styling */
+.itinerary-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.itinerary-card {
+  background: #fff;
+  border: none;
+}
+
+.itinerary-card .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.itinerary-card .activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itinerary-card .activity-item {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itinerary-card .remove-btn {
+  background-color: #dc3545;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.itinerary-card .remove-btn:hover {
+  background-color: #a71d2a;
+  color: #fff;
+}
+
+.itinerary-card .add-activity-btn {
+  background-color: #28a745;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.itinerary-card .add-activity-btn:hover {
+  background-color: #1e7e34;
+  color: #fff;
+}
+
+/* Flight Price Styling */
+.text-danger {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #dc3545;
+}

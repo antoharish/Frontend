@@ -1,0 +1,89 @@
+<form (ngSubmit)="fetchPackages()" class="p-5 bg-light rounded shadow-sm">
+  <h3 class="mb-4 text-primary text-center">Search Packages</h3>
+  <div class="row align-items-center g-4">
+    <div class="col-md-6">
+      <label for="startDate" class="form-label">Start Date:</label>
+      <input type="date" id="startDate" [(ngModel)]="formData.startDate" name="startDate" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+      <label for="endDate" class="form-label">End Date:</label>
+      <input type="date" id="endDate" [(ngModel)]="formData.endDate" name="endDate" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+      <label for="location" class="form-label">Location:</label>
+      <input type="text" id="location" [(ngModel)]="formData.location" name="location" class="form-control" placeholder="Enter location" required>
+    </div>
+    <div class="col-md-6">
+      <label for="people" class="form-label">No. of People:</label>
+      <input type="number" id="people" [(ngModel)]="formData.people" name="people" class="form-control" min="1" required>
+    </div>
+    <div class="col-md-12 d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary btn-lg w-50">Search</button>
+    </div>
+  </div>
+</form>
+
+<!-- Loading Indicator -->
+<div *ngIf="isLoading" class="text-center mt-4">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="alert alert-danger mt-4">
+  {{ errorMessage }}
+</div>
+
+<!-- Packages Display -->
+<div class="container mt-5">
+  <div class="row g-4">
+    <div class="col-md-6" *ngFor="let package of packages">
+      <div class="card shadow-lg h-100">
+        <img src="{{ package.imageUrl || '/assets/pexels-pixabay-221471.jpg' }}" class="card-img-top" alt="Package Image">
+        <div class="card-body">
+          <!-- Package Name -->
+          <h5 class="card-title text-primary">{{ package.name }}</h5>
+
+          <!-- Price -->
+          <p class="card-text">
+            <strong>Price: ₹{{ package.price }}- without Hotels And Flight Included</strong>
+          </p>
+
+          <!-- Hotels Included -->
+          <div>
+            <strong>Hotels Included:</strong>
+            <ul *ngIf="package.includedHotels?.length > 0; else noHotels">
+              <li *ngFor="let hotel of package.includedHotels">{{ hotel.name }}</li>
+            </ul>
+            <ng-template #noHotels>
+              <p class="text-muted">No included hotels</p>
+            </ng-template>
+          </div>
+
+          <!-- Flights Included -->
+          <div>
+            <strong>Flights Included:</strong>
+            <p>{{ package.includedFlights?.length > 0 ? 'Yes' : 'No' }}</p>
+          </div>
+
+          <!-- Activities -->
+          <div>
+            <strong>Activities:</strong>
+            <ul *ngIf="package.activities?.length > 0; else noActivities">
+              <li *ngFor="let activity of package.activities">
+                {{ activity.name }} - ₹{{ activity.price }}
+              </li>
+            </ul>
+            <ng-template #noActivities>
+              <p class="text-muted">No Activities Added</p>
+            </ng-template>
+          </div>
+
+          <!-- Book Now Button -->
+          <button class="btn btn-success w-100" (click)="bookNow(package.packageId)">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
