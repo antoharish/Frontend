@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+<<<<<<< HEAD
 import { Review } from '../../models/review.model';
 import { ReviewService } from '../../services/review.service';
+=======
+import { Review } from '../../../models/review.model';
+import { ReviewService } from '../../../services/review.service';
+>>>>>>> 44e5a34 (add final)
 
 @Component({
   selector: 'app-review-detail',
@@ -42,5 +47,9 @@ export class ReviewDetailComponent implements OnInit {
       this.router.navigate(['/reviews/edit', this.review.reviewID]);
     }
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 44e5a34 (add final)
 }

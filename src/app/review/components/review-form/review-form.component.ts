@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+<<<<<<< HEAD
 import { Review } from '../../models/review.model';
 import { ReviewService } from '../../services/review.service';
+=======
+import { Review } from '../../../models/review.model';
+import { ReviewService } from '../../../services/review.service';
+>>>>>>> 44e5a34 (add final)
 import { StarRatingComponent } from '../../star-rating/star-rating.component';
 
 @Component({

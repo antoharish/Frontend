@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -36,3 +37,200 @@
   </header>
   <!-- <router-outlet></router-outlet> -->
   
+=======
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">TravelSite</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="d-flex">
+        <a class="btn btn-outline-light me-2" routerLink="/login">Login</a>
+        <a class="btn btn-outline-light me-2" routerLink="/signup">SignUp</a>
+      </div>
+    </div>
+  </div>
+</nav> -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">TravelSite</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="d-flex align-items-center">
+        @if (!isLoggedIn) {
+          <a class="btn btn-outline-light me-2" routerLink="/login">Login</a>
+          <a class="btn btn-outline-light me-2" routerLink="/signup">SignUp</a>
+        } @else {
+          <div class="d-flex align-items-center">
+            <span class="text-light me-3">Welcome, {{ username }}!</span>
+            <button class="btn btn-outline-light" (click)="logout()">
+              <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</nav> -->
+
+<!-- <header class="py-5 bg-light">
+  <video src="/public/assets/201423-915387343_medium.mp4"></video>
+  <div class="container text-center">
+    <h1 class="display-4">Welcome to TravelSite!</h1>
+    <p class="lead text-muted">Find the best deals on flights, hotels, and vacation packages</p>
+    
+    <div class="d-flex justify-content-center gap-3 mt-4">
+      <button class="btn-12" 
+              [class.active]="selectedSection === 'flights'"
+              (click)="showSection('flights')">
+        <span><i class="fas fa-plane me-2"></i>Flights</span>
+      </button>
+      <button class="btn-12" 
+              [class.active]="selectedSection === 'hotels'"
+              (click)="showSection('hotels')">
+        <span><i class="fas fa-hotel me-2"></i>Hotels</span>
+      </button>
+      <button class="btn-12" 
+              [class.active]="selectedSection === 'packages'"
+              (click)="showSection('packages')">
+        <span><i class="fas fa-suitcase me-2"></i>Packages</span>
+      </button>
+      
+    </div>
+  </div>
+</header> -->
+
+<!-- <main class="container mt-4">
+  
+  <div [ngSwitch]="selectedSection">
+    <app-flights *ngSwitchCase="'flights'"></app-flights>
+    <app-hotels *ngSwitchCase="'hotels'"></app-hotels>
+    <app-package-selector *ngSwitchCase="'packages'"></app-package-selector>
+
+   
+    <div *ngSwitchDefault class="text-center py-5">
+      <h2>Start Your Journey</h2>
+      <p class="lead">Select a category above to begin your travel adventure</p>
+    </div>
+  </div>
+</main> -->
+<!--  -->
+<!--  -->
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top"> -->
+  <!-- <div class="container">
+    <a class="navbar-brand" routerLink="/">TravelSite</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="d-flex align-items-center">
+        <a class="btn btn-outline-light me-2" routerLink="/login">Login</a>
+        <a class="btn btn-outline-light me-2" routerLink="/signup">SignUp</a>
+      </div>
+    </div>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+  <div class="container">
+  <a class="navbar-brand" routerLink="/">TravelSite</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+  <div class="d-flex align-items-center">
+          @if (!isLoggedIn) {
+  <a class="btn btn-outline-light me-2" routerLink="/login">Login</a>
+  <a class="btn btn-outline-light me-2" routerLink="/signup">SignUp</a>
+          } @else {
+  <div class="d-flex align-items-center">
+  <span class="text-light me-3">Welcome, {{ username }}!</span>
+
+  <!-- <button class="btn btn-outline-light me-2" (click)="goToProfile()">
+  <i class="fas fa-user me-1"></i> Profile
+  </button> -->
+  <button class="btn btn-outline-light me-2" (click)="toggleProfilePopup()">
+    <i class="fas fa-user me-1"></i> Profile
+  </button>
+  
+  <!-- Profile Popup -->
+  <div class="profile-popup" *ngIf="isProfilePopupVisible">
+    <app-profile></app-profile>
+    <button class="btn-close" (click)="toggleProfilePopup()"></button>
+  </div>
+
+  <button class="btn btn-outline-light" (click)="logout()">
+  <i class="fas fa-sign-out-alt me-2"></i>Logout
+  </button>
+  </div>
+          }
+  </div>
+  </div>
+  </div>
+  </nav>
+
+
+
+
+<header class="video-header">
+  <video autoplay muted loop class="video-background">
+    <source src="/assets/201423-915387343_small.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay">
+    <div class="container text-center text-white">
+      <h1 class="display-4 fw-bold display">Plan a <span class="highlight">Hassle-free</span> holiday</h1>
+      <p class="lead display">Search for the best destinations, flights, and hotels</p>
+      <!-- <div class="search-bar mt-4">
+        <input type="text" class="form-control" placeholder="Search countries, cities">
+        <button class="btn btn-primary">Search</button>
+        
+      </div> -->
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <button class="btn-12 transparent-btn" 
+                [class.active]="selectedSection === 'flights'"
+                (click)="showSection('flights')">
+          <span><i class="fas fa-plane me-2"></i>Flights</span>
+        </button>
+        <button class="btn-12 transparent-btn" 
+                [class.active]="selectedSection === 'hotels'"
+                (click)="showSection('hotels')">
+          <span><i class="fas fa-hotel me-2"></i>Hotels</span>
+        </button>
+        <button class="btn-12 transparent-btn" 
+                [class.active]="selectedSection === 'packages'"
+                (click)="showSection('packages')">
+          <span><i class="fas fa-suitcase me-2"></i>Packages</span>
+        </button>
+        </div>
+    </div>
+  </div>
+</header>
+
+<main class="container mt-4">
+  
+  <div [ngSwitch]="selectedSection">
+    <app-flights *ngSwitchCase="'flights'"></app-flights>
+    <app-hotels *ngSwitchCase="'hotels'"></app-hotels>
+    <app-package-selector *ngSwitchCase="'packages'"></app-package-selector>
+
+   
+    <div *ngSwitchDefault class="text-center py-5">
+      <h2>Start Your Journey</h2>
+      <p class="lead">Select a category above to begin your travel adventure</p>
+    </div>
+  </div>
+</main>
+<app-footer/>
+>>>>>>> 44e5a34 (add final)

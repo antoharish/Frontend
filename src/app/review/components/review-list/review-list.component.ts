@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+<<<<<<< HEAD
 import { Review } from '../../models/review.model';
 import { ReviewService } from '../../services/review.service';
+=======
+import { Review } from '../../../models/review.model';
+import { ReviewService } from '../../../services/review.service';
+>>>>>>> 44e5a34 (add final)
 
 @Component({
   selector: 'app-review-list',
